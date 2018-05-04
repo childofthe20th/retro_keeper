@@ -2,7 +2,7 @@ class Nav extends React.Component {
   render() {
     return(
       <div>
-        <section className="hero is-warning is-bold is-small">
+        <section className="hero is-primary is-bold is-small">
           <div className="hero-body">
             <div className="navbar-end">
               <span className="navbar-item">
@@ -19,7 +19,7 @@ class Nav extends React.Component {
                 retro_Keeper
               </p>
               <p className="subtitle">
-                //keep track of your retro collection
+                //keep track of your retro video game collection
               </p>
             </div>
           </div>

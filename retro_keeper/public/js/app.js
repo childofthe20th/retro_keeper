@@ -9,6 +9,9 @@ class App extends React.Component {
       <div>
         <Nav />
         <Home />
+        <Upload />
+        <Collection />
+        <About />
       </div>
     )
   }
