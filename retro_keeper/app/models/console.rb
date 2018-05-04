@@ -5,16 +5,16 @@ class Console
     uri = URI.parse(ENV["DATABASE_URL"])
     DB = PG.connect(uri.hostname, uri.port, nil, nil, uri.path[1..-1], uri.user,uri.password)
   else
-    DB = PG.connect(host: "localhost", port: 5432, dbname: "consoles")
+    DB = PG.connect(host: "localhost", port: 5432, dbname: "retro_keeper")
   end
 
-  def initialize(opts={})
+  def initialize(opts = {})
     @id = opts["id"].to_i
     @name = opts["name"]
     @company = opts["company"]
     @condition = opts["condition"]
     @image = opts["image"]
-    @modded = opts[]
+    @modded = opts["modded"]
     @qty = opts["qty"].to_i
     @description = opts["description"]
     @region = opts["region"]
@@ -23,7 +23,7 @@ class Console
 
   def self.all
     results = DB.exec("SELECT * FROM consoles;")
-    return results.map {|result| Console.new(result)}
+    return results.map {|result| Console.new(result)}
   end
 
   def self.find(id)
@@ -49,13 +49,13 @@ class Console
         VALUES (
           '#{opts["name"]}',
           '#{opts["company"]}',
-          '{opts["condition"]}',
-          '{opts["image"]}',
-          {opts["modded"]},
-          {opts["qty"]},
-          '{opts["description"]}',
-          '{opts["region"]}',
-          '{opts[release_date]}'
+          '#{opts["condition"]}',
+          '#{opts["image"]}',
+          '#{opts["modded"]}',
+          #{opts["qty"]},
+          '#{opts["description"]}',
+          '#{opts["region"]}',
+          '#{opts["release_date"]}'
         )
         RETURNING
           id,
@@ -75,7 +75,7 @@ class Console
 
   def self.delete(id)
     results = DB.exec("DELETE FROM consoles WHERE id=#{id}")
-    return { delete:true }
+    return { deleted: true }
   end
 
   def self.update(id, opts={})
@@ -86,13 +86,13 @@ class Console
         SET
           name='#{opts["name"]}',
           company='#{opts["company"]}',
-          condition='{opts["condition"]}',
-          image='{opts["image"]}',
-          modded={opts["modded"]},
-          qty={opts["qty"]},
-          description='{opts["description"]}',
-          region='{opts["region"]}',
-          release_date='{opts[release_date]}'
+          condition='#{opts["condition"]}',
+          image='#{opts["image"]}',
+          modded='#{opts["modded"]}',
+          qty=#{opts["qty"]},
+          description='#{opts["description"]}',
+          region='#{opts["region"]}',
+          release_date='#{opts["release_date"]}'
         WHERE
           id=#{id}
         RETURNING

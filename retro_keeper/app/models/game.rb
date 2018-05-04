@@ -5,7 +5,7 @@ class Game
     uri = URI.parse(ENV["DATABASE_URL"])
     DB = PG.connect(uri.hostname, uri.port, nil, nil, uri.path[1..-1], uri.user,uri.password)
   else
-    DB = PG.connect(host: "localhost", port: 5432, dbname: "games")
+    DB = PG.connect(host: "localhost", port: 5432, dbname: "retro_keeper")
   end
 
   def initialize(opts = {})
@@ -25,7 +25,7 @@ class Game
   end
 
   def self.all
-    results = DB.exec("SELECT * FROM game;")
+    results = DB.exec("SELECT * FROM games;")
     return results.map {|result| Game.new(result)}
   end
 
@@ -59,12 +59,12 @@ class Game
           '#{opts["region"]}',
           '#{opts["condition"]}',
           '#{opts["image"]}',
-          '#{opts[rarity]}',
+          '#{opts["rarity"]}',
           #{opts["qty"]},
           #{opts["worth"]},
           #{opts["console_id"]},
           '#{opts["description"]}',
-          '#{opts[release_date]}'
+          '#{opts["release_date"]}'
         )
         RETURNING
           id,
