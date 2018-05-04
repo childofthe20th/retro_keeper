@@ -199,10 +199,248 @@ class Upload extends React.Component {
                 </form>
               </article>
             </div>
+
+{/* =============================================================================================== */}
+
             <div className="tile is-6 is-parent is-vertical">
               <article className="tile is-child notification is-info">
-                <p className="title has-text-centered">Game Entry</p>
-                <p className="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ipsam ad blanditiis magnam, dolor, nesciunt incidunt nulla facere, totam excepturi voluptatem, ratione deleniti. Iste voluptatem facilis vero, unde laudantium architecto?</p>
+                <form>
+                  <p className="title has-text-centered">Game Entry</p>
+                  <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                      <label className="label">Platform</label>
+                    </div>
+                    <div className="field-body">
+                      <div className="field is-narrow">
+                        <div className="control">
+                          <div className="select is-fullwidth">
+                            <select>
+                              <option disabled selected>Select a console...</option>
+                              <option>Nintendo Entertainment System</option>
+                              <option>Gameboy</option>
+                              <option>Gameboy Advance</option>
+                              <option>Nintendo DS</option>
+                              <option>Super Nintendo</option>
+                              <option>Nintendo 64</option>
+                              <option>Gamecube</option>
+                              <option>Master System</option>
+                              <option>Genesis</option>
+                              <option>32X</option>
+                              <option>Sega CD</option>
+                              <option>Game Gear</option>
+                              <option>Saturn</option>
+                              <option>Dreamcast</option>
+                              <option>Playstation</option>
+                              <option>Playstation 2</option>
+                              <option>PSP</option>
+                              <option>Xbox</option>
+                              <option>Neo Geo</option>
+                              <option>TurboGrafx 16</option>
+                              <option>TurboGrafx CD</option>
+                              <option>Atari 2600</option>
+                              <option>Jaguar</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                      <label className="label">Title</label>
+                    </div>
+                    <div className="field-body">
+                      <div className="field">
+                        <div className="control">
+                          <input type="text" className="input" placeholder="Gunstar Heroes"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                      <label className="label">Publisher</label>
+                    </div>
+                    <div className="field-body">
+                      <div className="field">
+                        <div className="control">
+                          <input type="text" className="input" placeholder="Sega"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                      <label className="label">Developer</label>
+                    </div>
+                    <div className="field-body">
+                      <div className="field">
+                        <div className="control">
+                          <input type="text" className="input" placeholder="Treasure"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                      <label className="label">Region</label>
+                    </div>
+                    <div className="field-body">
+                      <div className="field is-narrow">
+                        <div className="control">
+                          <div className="select is-fullwidth">
+                            <select>
+                              <option disabled selected>What region?</option>
+                              <option>NTSC-J (Japan and Asia)</option>
+                              <option>NTSC-U (Americas)</option>
+                              <option>PAL (Europe, New Zealand and Australia)</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                      <label className="label">Quantity</label>
+                    </div>
+                    <div className="field-body">
+                      <div className="field is-narrow">
+                        <div className="control">
+                          <div className="select is-fullwidth">
+                            <select>
+                              <option disabled selected>How many?</option>
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                              <option>6</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                      <label className="label">Condition</label>
+                    </div>
+                    <div className="field-body">
+                      <div className="field is-narrow">
+                        <div className="control">
+                          <div className="select is-fullwidth">
+                            <select>
+                              <option disabled selected>My game is...</option>
+                              <option>Sealed</option>
+                              <option>Mint</option>
+                              <option>Good</option>
+                              <option>Fair</option>
+                              <option>Poor</option>
+                              <option>Broken</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                      <label className="label">Rarity</label>
+                    </div>
+                    <div className="field-body">
+                      <div className="field is-narrow">
+                        <div className="control">
+                          <div className="select is-fullwidth">
+                            <select>
+                              <option disabled selected>How rare?</option>
+                              <option>Very Common</option>
+                              <option>Common</option>
+                              <option>Rare</option>
+                              <option>Very Rare</option>
+                              <option>Extremely Rare</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                      <label className="label">Genre</label>
+                    </div>
+                    <div className="field-body">
+                      <div className="field is-narrow">
+                        <div className="control">
+                          <div className="select is-fullwidth">
+                            <select>
+                              <option disabled selected>What genre?</option>
+                              <option>Action</option>
+                              <option>Adventure</option>
+                              <option>Arcade</option>
+                              <option>Compilation</option>
+                              <option>Simulation</option>
+                              <option>Fighting</option>
+                              <option>Music</option>
+                              <option>Platformer</option>
+                              <option>Puzzle</option>
+                              <option>Racing</option>
+                              <option>Role-Playing Game</option>
+                              <option>Shoot'em Up</option>
+                              <option>Sports</option>
+                              <option>Strategy</option>
+                              <option>Other</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                      <label className="label">Released</label>
+                    </div>
+                    <div className="field-body">
+                      <div className="field is-narrow">
+                        <div className="control">
+                          <input type="text" className="input" placeholder="1997-2001"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                      <label className="label">Worth</label>
+                    </div>
+                    <div className="field-body">
+                      <div className="field is-narrow">
+                        <div className="control">
+                          <input type="text" className="input" placeholder="0.00"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="field is-horizontal">
+                    <div className="field-label is-normal">
+                      <label className="label">Description</label>
+                    </div>
+                    <div className="field-body">
+                      <div className="field">
+                        <div className="control">
+                          <textarea cols="40" rows="5" className="textarea" placeholder="More details here..."></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="field is-grouped">
+                    <div className="control">
+                      <button className="button is-link">Submit</button>
+                    </div>
+                    <div className="control">
+                      <button className="button is-text">Cancel</button>
+                    </div>
+                  </div>
+                </form>
               </article>
             </div>
           </div>
