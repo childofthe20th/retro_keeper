@@ -1,16 +1,12 @@
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return(
       <div>
         <Nav />
         <Home />
-        <Upload />
-        <Collection />
+        <Consoles />
+        <Games />
         <About />
       </div>
     )

@@ -1,4 +1,14 @@
 /* line 6, ../sass/styles.scss */
-.navbar-end {
-  float: right;
+.main-title {
+  font-family: 'MotterTekturaWebRegular', sans-serif;
+}
+
+/* line 10, ../sass/styles.scss */
+td:hover {
+  cursor: pointer;
+}
+
+/* line 14, ../sass/styles.scss */
+.material-icons:hover {
+  cursor: pointer;
 }

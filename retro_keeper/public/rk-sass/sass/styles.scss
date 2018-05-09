@@ -3,6 +3,14 @@
 @import "partials/normalize";
 
 
-.navbar-end {
-  float: right;
+.main-title {
+  font-family: 'MotterTekturaWebRegular', sans-serif;
+}
+
+td:hover {
+  cursor: pointer;
+}
+
+.material-icons:hover {
+  cursor: pointer;
 }
