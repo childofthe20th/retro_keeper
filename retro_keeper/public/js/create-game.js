@@ -17,8 +17,7 @@ class GameUpload extends React.Component {
       qty: 0,
       description: "",
       region: "",
-      release_date: "",
-      worth: ""
+      release_date: ""
     }
   }
 
@@ -46,7 +45,7 @@ class GameUpload extends React.Component {
         <div className="modal-background"></div>
         <div className="modal-content">
           <div className="tile is-12 is-parent is-vertical">
-            <article className="tile is-child notification is-info">
+            <article className="tile is-child notification is-warning">
               <form onSubmit={this.handleSubmit}>
                 <p className="title has-text-centered">Game Entry</p>
                 <div className="field is-horizontal">
@@ -254,18 +253,6 @@ class GameUpload extends React.Component {
                 </div>
                 <div className="field is-horizontal">
                   <div className="field-label is-normal">
-                    <label className="label">Worth</label>
-                  </div>
-                  <div className="field-body">
-                    <div className="field is-narrow">
-                      <div className="control">
-                        <input id="worth" onChange={this.handleChange} type="text" className="input" placeholder="0.00"/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="field is-horizontal">
-                  <div className="field-label is-normal">
                     <label className="label">Image</label>
                   </div>
                   <div className="field-body">
@@ -283,14 +270,14 @@ class GameUpload extends React.Component {
                   <div className="field-body">
                     <div className="field">
                       <div className="control">
-                        <textarea id="description" onChange={this.handleChange} cols="40" rows="5" className="textarea" placeholder="More details here..."></textarea>
+                        <textarea id="description" onChange={this.handleChange} cols="40" rows="5" className="textarea" placeholder="More details here..."/>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="field is-grouped">
                   <div className="control">
-                    <input type="submit" className="button is-primary" />
+                    <input type="submit" className="button is-info" />
                   </div>
                   <div className="control">
                     <button onClick={()=>{this.props.toggleAddGame(event)}} className="button is-text">Close</button>
@@ -300,6 +287,7 @@ class GameUpload extends React.Component {
             </article>
           </div>
         </div>
+        <button onClick={()=>{this.props.toggleAddGame(event)}} className="modal-close is-large" aria-label="close"></button>
       </div>
     )
   }

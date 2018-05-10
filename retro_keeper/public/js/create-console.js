@@ -43,7 +43,7 @@ class ConsoleUpload extends React.Component {
         <div className="modal-content">
           <div className="tile is-ancestor">
             <div className="tile is-12 is-parent is-vertical">
-              <article className="tile is-child notification is-primary">
+              <article className="tile is-child notification is-warning">
                 <p className="title has-text-centered">Console Entry</p>
                 <form onSubmit={this.handleSubmit}>
                   <div className="field is-horizontal">
@@ -137,12 +137,13 @@ class ConsoleUpload extends React.Component {
                     <div className="field-body">
                       <div className="field is-narrow">
                         <div className="control">
-                          <label className="radio">
-                            <input onChange={this.handleChange} id="modded" type="radio" name="question" /> Yes
-                          </label>
-                          <label className="radio">
-                            <input onChange={this.handleChange} id="modded" type="radio" name="question" /> No
-                          </label>
+                          <div className="select is-fullwidth">
+                            <select onChange={this.handleChange} id="modded">
+                              <option disabled selected>Modded?</option>
+                              <option>Yes</option>
+                              <option>No</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -237,6 +238,7 @@ class ConsoleUpload extends React.Component {
             </div>
           </div>
         </div>
+        <button onClick={()=>{this.props.toggleAddConsole(event)}} className="modal-close is-large" aria-label="close"></button>
       </div>
     )
   }
