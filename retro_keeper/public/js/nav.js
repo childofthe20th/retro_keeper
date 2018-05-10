@@ -1,7 +1,7 @@
 class Nav extends React.Component {
   render() {
     return(
-      <section className="hero is-primary is-small">
+      <section className="hero is-dark is-bold is-small">
         <div className="hero-body">
           <div className="navbar-end">
             <span className="navbar-item">
