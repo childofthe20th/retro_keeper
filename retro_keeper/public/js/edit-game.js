@@ -71,7 +71,7 @@ class EditGame extends React.Component {
                         <div className="control">
                           <div className="select is-fullwidth">
                             <select id="platform" onChange={this.handleChange}>
-                              <option disabled selected>{this.props.game.platform}</option>
+                              <option disabled selected>{this.props.game ? this.props.game.platform : ""}</option>
                               <option>Nintendo Entertainment System</option>
                               <option>Gameboy</option>
                               <option>Gameboy Advance</option>
@@ -108,7 +108,7 @@ class EditGame extends React.Component {
                     <div className="field-body">
                       <div className="field">
                         <div className="control">
-                          <input id="title" onChange={this.handleChange} type="text" className="input" placeholder={this.props.game.title}/>
+                          <input id="title" onChange={this.handleChange} type="text" className="input" placeholder={this.props.game ? this.props.game.title : ""}/>
                         </div>
                       </div>
                     </div>
@@ -120,7 +120,7 @@ class EditGame extends React.Component {
                     <div className="field-body">
                       <div className="field">
                         <div className="control">
-                          <input id="publisher" onChange={this.handleChange} type="text" className="input" placeholder={this.props.game.publisher}/>
+                          <input id="publisher" onChange={this.handleChange} type="text" className="input" placeholder={this.props.game ? this.props.game.publisher : ""}/>
                         </div>
                       </div>
                     </div>
@@ -132,7 +132,7 @@ class EditGame extends React.Component {
                     <div className="field-body">
                       <div className="field">
                         <div className="control">
-                          <input id="developer" onChange={this.handleChange} type="text" className="input" placeholder={this.props.game.developer}/>
+                          <input id="developer" onChange={this.handleChange} type="text" className="input" placeholder={this.props.game ? this.props.game.developer : ""}/>
                         </div>
                       </div>
                     </div>
@@ -146,7 +146,7 @@ class EditGame extends React.Component {
                         <div className="control">
                           <div className="select is-fullwidth">
                             <select id="region" onChange={this.handleChange}>
-                              <option disabled selected>{this.props.game.region}</option>
+                              <option disabled selected>{this.props.game ? this.props.game.region : ""}</option>
                               <option>NTSC-J (Japan and Asia)</option>
                               <option>NTSC-U (Americas)</option>
                               <option>PAL (Europe, New Zealand and Australia)</option>
@@ -165,7 +165,7 @@ class EditGame extends React.Component {
                         <div className="control">
                           <div className="select is-fullwidth">
                             <select id="qty" onChange={this.handleChange}>
-                              <option disabled selected>{this.props.game.qty}</option>
+                              <option disabled selected>{this.props.game ? this.props.game.qty : ""}</option>
                               <option>1</option>
                               <option>2</option>
                               <option>3</option>
@@ -187,7 +187,7 @@ class EditGame extends React.Component {
                         <div className="control">
                           <div className="select is-fullwidth">
                             <select id="condition" onChange={this.handleChange}>
-                              <option disabled selected>{this.props.game.condition}</option>
+                              <option disabled selected>{this.props.game ? this.props.game.condition : ""}</option>
                               <option>Sealed</option>
                               <option>Mint</option>
                               <option>Good</option>
@@ -209,7 +209,7 @@ class EditGame extends React.Component {
                         <div className="control">
                           <div className="select is-fullwidth">
                             <select id="rarity" onChange={this.handleChange}>
-                              <option disabled selected>{this.props.game.rarity}</option>
+                              <option disabled selected>{this.props.game ? this.props.game.rarity : ""}</option>
                               <option>Very Common</option>
                               <option>Common</option>
                               <option>Uncommon</option>
@@ -231,7 +231,7 @@ class EditGame extends React.Component {
                         <div className="control">
                           <div className="select is-fullwidth">
                             <select id="genre" onChange={this.handleChange}>
-                              <option disabled selected>{this.props.game.genre}</option>
+                              <option disabled selected>{this.props.game ? this.props.game.genre : ""}</option>
                               <option>Action</option>
                               <option>Adventure</option>
                               <option>Arcade</option>
@@ -260,7 +260,7 @@ class EditGame extends React.Component {
                     <div className="field-body">
                       <div className="field is-narrow">
                         <div className="control">
-                          <input id="release_date" onChange={this.handleChange} type="text" className="input" placeholder={this.props.game.release_date}/>
+                          <input id="release_date" onChange={this.handleChange} type="text" className="input" placeholder={this.props.game ? this.props.game.release_date : ""}/>
                         </div>
                       </div>
                     </div>
@@ -272,7 +272,7 @@ class EditGame extends React.Component {
                     <div className="field-body">
                       <div className="field">
                         <div className="control">
-                          <input id="image" onChange={this.handleChange} type="text" className="input" placeholder={this.props.game.image}/>
+                          <input id="image" onChange={this.handleChange} type="text" className="input" placeholder={this.props.game ? this.props.game.image : ""}/>
                         </div>
                       </div>
                     </div>
@@ -284,7 +284,7 @@ class EditGame extends React.Component {
                     <div className="field-body">
                       <div className="field">
                         <div className="control">
-                          <textarea id="description" onChange={this.handleChange} cols="40" rows="5" className="textarea" placeholder={this.props.game.description}/>
+                          <textarea id="description" onChange={this.handleChange} cols="40" rows="5" className="textarea" placeholder={this.props.game ? this.props.game.description : ""}/>
                         </div>
                       </div>
                     </div>
@@ -302,7 +302,7 @@ class EditGame extends React.Component {
             </div>
           </div>
         </div>
-        <button onClick={()=>{this.props.toggleEditGame(event); this.props.toggleGameModal(event)}} class="modal-close is-large" aria-label="close"></button>
+        <button onClick={()=>{this.props.toggleEditGame(event); this.props.toggleShowGame(event)}} class="modal-close is-large" aria-label="close"></button>
       </div>
     )
   }

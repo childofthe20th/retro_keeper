@@ -1,26 +1,26 @@
 
 class ShowConsole extends React.Component {
   render() {
-    // console.log(this.props.console);
+    console.log(this.props.console);
     return(
       <div className="modal console-modal">
         <div className="modal-background"></div>
         <div className="modal-card">
-          <header className="modal-card-head">
-            <p className="modal-card-title">{this.props.console.name}</p>
-            <button onClick={()=>{this.props.toggleConsoleModal(event)}} className="delete" aria-label="close"></button>
+          <header className="modal-card-head has-background-info">
+            <p className="modal-card-title has-text-white">{this.props.console ? this.props.console.name : ""}</p>
+            <button onClick={()=>{this.props.toggleShowConsole(event)}} className="delete" aria-label="close"></button>
           </header>
           <section className="modal-card-body">
-            <img className="is-pulled-right" src={this.props.console.image} alt={this.props.console.name} />
-            <p><span className="has-text-weight-semibold">Company: </span>{this.props.console.company}</p>
-            <p><span className="has-text-weight-semibold">Condition: </span>{this.props.console.condition}</p>
-            <p><span className="has-text-weight-semibold">Modded: </span>{this.props.console.modded}</p>
-            <p><span className="has-text-weight-semibold">Quantity: </span>{this.props.console.qty}</p>
-            <p><span className="has-text-weight-semibold">Region: </span>{this.props.console.region}</p>
-            <p><span className="has-text-weight-semibold">Released: </span>{this.props.console.release_date}</p>
-            <p><span className="has-text-weight-semibold">Description: </span>{this.props.console.description}</p>
+            <img className="is-pulled-right" src={this.props.console ? this.props.console.image : ""} alt={this.props.console ? this.props.console.name : ""} />
+            <p><span className="has-text-weight-semibold">Company: </span>{this.props.console ? this.props.console.company : ""}</p>
+            <p><span className="has-text-weight-semibold">Condition: </span>{this.props.console ? this.props.console.condition : ""}</p>
+            <p><span className="has-text-weight-semibold">Modded: </span>{this.props.console ? this.props.console.modded : ""}</p>
+            <p><span className="has-text-weight-semibold">Quantity: </span>{this.props.console ? this.props.console.qty : ""}</p>
+            <p><span className="has-text-weight-semibold">Region: </span>{this.props.console ? this.props.console.region : ""}</p>
+            <p><span className="has-text-weight-semibold">Released: </span>{this.props.console ? this.props.console.release_date : ""}</p>
+            <p><span className="has-text-weight-semibold">Description: </span>{this.props.console ? this.props.console.description : ""}</p>
             <EditConsole
-              toggleConsoleModal={this.props.toggleConsoleModal}
+              toggleShowConsole={this.props.toggleShowConsole}
               toggleEditConsole={this.props.toggleEditConsole}
               getConsole={this.props.getConsole}
               updateConsole={this.props.updateConsole}
@@ -28,7 +28,7 @@ class ShowConsole extends React.Component {
           </section>
           <footer className="modal-card-foot">
             <button onClick={()=>{this.props.toggleEditConsole(event)}} className="button is-primary">Edit</button>
-            <button onClick={()=>{this.props.toggleConsoleModal(event)}} className="button is-text">Close</button>
+            <button onClick={()=>{this.props.toggleShowConsole(event)}} className="button is-text">Close</button>
           </footer>
         </div>
       </div>
@@ -45,7 +45,7 @@ class Consoles extends React.Component {
     this.submitConsole = this.submitConsole.bind(this)
     this.updateConsole = this.updateConsole.bind(this)
     this.deleteConsole = this.deleteConsole.bind(this)
-    this.toggleConsoleModal = this.toggleConsoleModal.bind(this)
+    this.toggleShowConsole = this.toggleShowConsole.bind(this)
     this.toggleAddConsole = this.toggleAddConsole.bind(this)
     this.toggleEditConsole = this.toggleEditConsole.bind(this)
     this.state = {
@@ -59,9 +59,11 @@ class Consoles extends React.Component {
   }
 
   getConsole(platform) {
+    // console.log(platform);
     this.setState({
       console: platform
-    })
+    }, ()=> console.log(this.state.console))
+    // console.log(this.state.console);
   }
 
   getConsoles() {
@@ -137,8 +139,9 @@ class Consoles extends React.Component {
     })
   }
 
-  toggleConsoleModal(event) {
+  toggleShowConsole(event) {
     event.preventDefault();
+    console.log("Toggled Console!");
     let consoleModal = document.querySelector('.console-modal')
     let html = document.querySelector('html')
     consoleModal.classList.toggle('is-active')
@@ -162,12 +165,12 @@ class Consoles extends React.Component {
   render() {
     // console.log(this.props.consoles);
     return(
-      <section className="section">
+      <section id="consoles" className="section">
         <div className="container">
           <div className="table-container">
             <div>
               <h1 className="title is-4 is-pulled-left">Console Collection</h1>
-              <button onClick={()=>{this.toggleAddConsole(event)}} className="button is-pulled-right is-info is-outlined">Add Console</button>
+              <button onClick={()=>{this.toggleAddConsole(event)}} className="button is-pulled-right is-info is-outlined is-rounded">Add Console</button>
             </div>
             <ConsoleUpload
               console={this.state.console}
@@ -177,6 +180,7 @@ class Consoles extends React.Component {
             <table className="table is-striped is-hoverable is-fullwidth">
               <thead>
                 <tr>
+                  <th></th>
                   <th>Name</th>
                   <th>Company</th>
                   <th>Condition</th>
@@ -187,39 +191,28 @@ class Consoles extends React.Component {
                   <th></th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Company</th>
-                  <th>Condition</th>
-                  <th>Modded</th>
-                  <th><abbr title="Quantity">Qty</abbr></th>
-                  <th>Region</th>
-                  <th>Released</th>
-                  <th></th>
-                </tr>
-              </tfoot>
               <tbody>
               {this.state.consoles.map((platform, index)=>{
                 return(
                   <tr>
-                    <td onClick={()=>{this.getConsole(platform); this.toggleConsoleModal(event)}}>{platform.name}</td>
-                    <td onClick={()=>{this.getConsole(platform); this.toggleConsoleModal(event)}}>{platform.company}</td>
-                    <td onClick={()=>{this.getConsole(platform); this.toggleConsoleModal(event)}}>{platform.condition}</td>
-                    <td onClick={()=>{this.getConsole(platform); this.toggleConsoleModal(event)}}>{platform.modded}</td>
-                    <td onClick={()=>{this.getConsole(platform); this.toggleConsoleModal(event)}}>{platform.qty}</td>
-                    <td onClick={()=>{this.getConsole(platform); this.toggleConsoleModal(event)}}>{platform.region}</td>
-                    <td onClick={()=>{this.getConsole(platform); this.toggleConsoleModal(event)}}>{platform.release_date}</td>
+                    <td><i onClick={()=>{this.getConsole(platform); this.toggleShowConsole(event)}} className="material-icons">open_in_new</i></td>
+                    <td>{platform.name}</td>
+                    <td>{platform.company}</td>
+                    <td>{platform.condition}</td>
+                    <td>{platform.modded}</td>
+                    <td>{platform.qty}</td>
+                    <td>{platform.region}</td>
+                    <td>{platform.release_date}</td>
                     <td><i onClick={()=>this.deleteConsole(platform, index)} className="material-icons">delete</i></td>
-                    <ShowConsole
-                        toggleConsoleModal={this.toggleConsoleModal}
-                        toggleEditConsole={this.toggleEditConsole}
-                        console={platform}
-                        getConsole={this.getConsole}
-                        updateConsole={this.updateConsole} />
                   </tr>
                 )
               })}
+              <ShowConsole
+                  toggleShowConsole={this.toggleShowConsole}
+                  toggleEditConsole={this.toggleEditConsole}
+                  console={this.state.console}
+                  getConsole={this.getConsole}
+                  updateConsole={this.updateConsole} />
             </tbody>
             </table>
           </div>

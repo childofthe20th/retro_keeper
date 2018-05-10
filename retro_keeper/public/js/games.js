@@ -2,29 +2,29 @@
 
 class ShowGame extends React.Component {
   render() {
-    // console.log(this.props.game);
+    console.log(this.props.game);
     return(
       <div className="modal game-modal">
         <div className="modal-background"></div>
         <div className="modal-card">
-          <header className="modal-card-head">
-            <p className="modal-card-title">{this.props.game.title}</p>
-            <button onClick={()=>{this.props.toggleGameModal(event)}} className="delete" aria-label="close"></button>
+          <header className="modal-card-head has-background-info">
+            <p className="modal-card-title has-text-white">{this.props.game ? this.props.game.title : ""}</p>
+            <button onClick={()=>{this.props.toggleShowGame(event)}} className="delete" aria-label="close"></button>
           </header>
           <section className="modal-card-body">
-            <img className="is-pulled-right" src={this.props.game.image} alt={this.props.game.title} />
-            <p><span className="has-text-weight-semibold">Developer: </span>{this.props.game.developer}</p>
-            <p><span className="has-text-weight-semibold">Publisher: </span>{this.props.game.publisher}</p>
-            <p><span className="has-text-weight-semibold">Platform: </span>{this.props.game.platform}</p>
-            <p><span className="has-text-weight-semibold">Genre: </span>{this.props.game.genre}</p>
-            <p><span className="has-text-weight-semibold">Condition: </span>{this.props.game.condition}</p>
-            <p><span className="has-text-weight-semibold">Rarity: </span>{this.props.game.rarity}</p>
-            <p><span className="has-text-weight-semibold">Quantity: </span>{this.props.game.qty}</p>
-            <p><span className="has-text-weight-semibold">Region: </span>{this.props.game.region}</p>
-            <p><span className="has-text-weight-semibold">Released: </span>{this.props.game.release_date}</p>
-            <p><span className="has-text-weight-semibold">Description: </span>{this.props.game.description}</p>
+            <img className="is-pulled-right" src={this.props.game ? this.props.game.image : ""} alt={this.props.game ? this.props.game.title : ""} />
+            <p><span className="has-text-weight-semibold">Developer: </span>{this.props.game ? this.props.game.developer : ""}</p>
+            <p><span className="has-text-weight-semibold">Publisher: </span>{this.props.game ? this.props.game.publisher : ""}</p>
+            <p><span className="has-text-weight-semibold">Platform: </span>{this.props.game ? this.props.game.platform : ""}</p>
+            <p><span className="has-text-weight-semibold">Genre: </span>{this.props.game ? this.props.game.genre : ""}</p>
+            <p><span className="has-text-weight-semibold">Condition: </span>{this.props.game ? this.props.game.condition : ""}</p>
+            <p><span className="has-text-weight-semibold">Rarity: </span>{this.props.game ? this.props.game.rarity : ""}</p>
+            <p><span className="has-text-weight-semibold">Quantity: </span>{this.props.game ? this.props.game.qty : ""}</p>
+            <p><span className="has-text-weight-semibold">Region: </span>{this.props.game ? this.props.game.region : ""}</p>
+            <p><span className="has-text-weight-semibold">Released: </span>{this.props.game ? this.props.game.release_date : ""}</p>
+            <p><span className="has-text-weight-semibold">Description: </span>{this.props.game ? this.props.game.description : ""}</p>
             <EditGame
-              toggleGameModal={this.props.toggleGameModal}
+              toggleShowGame={this.props.toggleShowGame}
               toggleEditGame={this.props.toggleEditGame}
               getGame={this.props.getGame}
               updateGame={this.props.updateGame}
@@ -32,7 +32,7 @@ class ShowGame extends React.Component {
           </section>
           <footer className="modal-card-foot">
             <button onClick={()=>{this.props.toggleEditGame(event)}} className="button is-primary">Edit</button>
-            <button onClick={()=>{this.props.toggleGameModal(event)}} className="button is-text">Close</button>
+            <button onClick={()=>{this.props.toggleShowGame(event)}} className="button is-text">Close</button>
           </footer>
         </div>
       </div>
@@ -49,7 +49,7 @@ class Games extends React.Component {
     this.submitGame = this.submitGame.bind(this)
     this.updateGame = this.updateGame.bind(this)
     this.deleteGame = this.deleteGame.bind(this)
-    this.toggleGameModal = this.toggleGameModal.bind(this)
+    this.toggleShowGame = this.toggleShowGame.bind(this)
     this.toggleAddGame = this.toggleAddGame.bind(this)
     this.toggleEditGame = this.toggleEditGame.bind(this)
     this.state = {
@@ -63,9 +63,11 @@ class Games extends React.Component {
   }
 
   getGame(game) {
+    // console.log(game);
     this.setState({
       game: game
-    })
+    }, ()=> console.log(this.state.game))
+    // console.log(game);
   }
 
   getGames() {
@@ -143,8 +145,9 @@ class Games extends React.Component {
     })
   }
 
-  toggleGameModal(event) {
+  toggleShowGame(event) {
     event.preventDefault();
+    console.log("Toggled Game!");
     let gameModal = document.querySelector('.game-modal')
     let html = document.querySelector('html')
     gameModal.classList.toggle('is-active')
@@ -168,12 +171,12 @@ class Games extends React.Component {
   render() {
     // console.log(this.props.games);
     return(
-      <section className="section">
+      <section id="games" className="section">
         <div className="container">
           <div className="table-container">
             <div>
               <h1 className="title is-4 is-pulled-left">Game Collection</h1>
-              <button onClick={()=>{this.toggleAddGame(event)}} className="button is-pulled-right is-info is-outlined">Add Game</button>
+              <button onClick={()=>{this.toggleAddGame(event)}} className="button is-pulled-right is-info is-outlined is-rounded">Add Game</button>
             </div>
             <GameUpload
               game={this.state.game}
@@ -183,6 +186,7 @@ class Games extends React.Component {
             <table className="table is-striped is-hoverable is-fullwidth">
               <thead>
                 <tr>
+                  <th></th>
                   <th>Title</th>
                   <th>Developer</th>
                   <th>Publisher</th>
@@ -196,45 +200,31 @@ class Games extends React.Component {
                   <th></th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                  <th>Title</th>
-                  <th>Developer</th>
-                  <th>Publisher</th>
-                  <th>Platform</th>
-                  <th>Genre</th>
-                  <th>Condition</th>
-                  <th>Rarity</th>
-                  <th><abbr title="Quantity">Qty</abbr></th>
-                  <th>Region</th>
-                  <th>Released</th>
-                  <th></th>
-                </tr>
-              </tfoot>
               <tbody>
                 {this.state.games.map((game, index)=>{
                   return(
                     <tr>
-                      <td onClick={()=>{this.getGame(game); this.toggleGameModal(event)}}>{game.title}</td>
-                      <td onClick={()=>{this.getGame(game); this.toggleGameModal(event)}}>{game.developer}</td>
-                      <td onClick={()=>{this.getGame(game); this.toggleGameModal(event)}}>{game.publisher}</td>
-                      <td onClick={()=>{this.getGame(game); this.toggleGameModal(event)}}>{game.platform}</td>
-                      <td onClick={()=>{this.getGame(game); this.toggleGameModal(event)}}>{game.genre}</td>
-                      <td onClick={()=>{this.getGame(game); this.toggleGameModal(event)}}>{game.condition}</td>
-                      <td onClick={()=>{this.getGame(game); this.toggleGameModal(event)}}>{game.rarity}</td>
-                      <td onClick={()=>{this.getGame(game); this.toggleGameModal(event)}}>{game.qty}</td>
-                      <td onClick={()=>{this.getGame(game); this.toggleGameModal(event)}}>{game.region}</td>
-                      <td onClick={()=>{this.getGame(game); this.toggleGameModal(event)}}>{game.release_date}</td>
+                      <td><i onClick={()=>{this.getGame(game); this.toggleShowGame(event)}} className="material-icons">open_in_new</i></td>
+                      <td>{game.title}</td>
+                      <td>{game.developer}</td>
+                      <td>{game.publisher}</td>
+                      <td>{game.platform}</td>
+                      <td>{game.genre}</td>
+                      <td>{game.condition}</td>
+                      <td>{game.rarity}</td>
+                      <td>{game.qty}</td>
+                      <td>{game.region}</td>
+                      <td>{game.release_date}</td>
                       <td><i onClick={()=>this.deleteGame(game, index)} className="material-icons">delete</i></td>
-                      <ShowGame
-                        toggleGameModal={this.toggleGameModal}
-                        toggleEditGame={this.toggleEditGame}
-                        game={game}
-                        getGame={this.getGame}
-                        updateGame={this.updateGame} />
                     </tr>
                   )
                 })}
+                <ShowGame
+                  toggleShowGame={this.toggleShowGame}
+                  toggleEditGame={this.toggleEditGame}
+                  game={this.state.game}
+                  getGame={this.getGame}
+                  updateGame={this.updateGame} />
               </tbody>
             </table>
           </div>

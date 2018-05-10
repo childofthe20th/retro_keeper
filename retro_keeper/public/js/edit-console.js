@@ -66,7 +66,7 @@ class EditConsole extends React.Component {
                         <div className="control">
                           <div className="select is-fullwidth">
                             <select id="company" onChange={this.handleChange}>
-                              <option disabled selected>{this.props.console.company}</option>
+                              <option disabled selected>{this.props.console ? this.props.console.company : ""}</option>
                               <option>Nintendo</option>
                               <option>Sega</option>
                               <option>Sony</option>
@@ -89,7 +89,7 @@ class EditConsole extends React.Component {
                         <div className="control">
                           <div className="select is-fullwidth">
                             <select id="name" onChange={this.handleChange}>
-                              <option disabled selected>{this.props.console.name}</option>
+                              <option disabled selected>{this.props.console ? this.props.console.name : ""}</option>
                               <option>Nintendo Entertainment System</option>
                               <option>Gameboy</option>
                               <option>Gameboy Advance</option>
@@ -128,7 +128,7 @@ class EditConsole extends React.Component {
                         <div className="control">
                           <div className="select is-fullwidth">
                             <select id="condition" onChange={this.handleChange}>
-                              <option disabled selected>{this.props.console.condition}</option>
+                              <option disabled selected>{this.props.console ? this.props.console.condition : ""}</option>
                               <option>Sealed</option>
                               <option>Mint</option>
                               <option>Good</option>
@@ -150,7 +150,7 @@ class EditConsole extends React.Component {
                         <div className="control">
                           <div className="select is-fullwidth">
                             <select onChange={this.handleChange} id="modded">
-                              <option disabled selected>{this.props.console.modded}</option>
+                              <option disabled selected>{this.props.console ? this.props.console.modded : ""}</option>
                               <option>Yes</option>
                               <option>No</option>
                             </select>
@@ -168,7 +168,7 @@ class EditConsole extends React.Component {
                         <div className="control">
                           <div className="select is-fullwidth">
                             <select onChange={this.handleChange} id="region">
-                              <option disabled selected>{this.props.console.region}</option>
+                              <option disabled selected>{this.props.console ? this.props.console.region : ""}</option>
                               <option>NTSC-J (Japan and Asia)</option>
                               <option>NTSC-U (Americas)</option>
                               <option>PAL (Europe, New Zealand and Australia)</option>
@@ -187,7 +187,7 @@ class EditConsole extends React.Component {
                         <div className="control">
                           <div className="select is-fullwidth">
                             <select onChange={this.handleChange} id="qty">
-                              <option disabled selected>{this.props.console.qty}</option>
+                              <option disabled selected>{this.props.console ? this.props.console.qty : ""}</option>
                               <option>1</option>
                               <option>2</option>
                               <option>3</option>
@@ -207,7 +207,7 @@ class EditConsole extends React.Component {
                     <div className="field-body">
                       <div className="field is-narrow">
                         <div className="control">
-                          <input onChange={this.handleChange} id="release_date" type="text" className="input" placeholder={this.props.console.release_date}/>
+                          <input onChange={this.handleChange} id="release_date" type="text" className="input" placeholder={this.props.console ? this.props.console.release_date : ""}/>
                         </div>
                       </div>
                     </div>
@@ -219,7 +219,7 @@ class EditConsole extends React.Component {
                     <div className="field-body">
                       <div className="field">
                         <div className="control">
-                          <input onChange={this.handleChange} id="image" type="text" className="input" placeholder={this.props.console.image}/>
+                          <input onChange={this.handleChange} id="image" type="text" className="input" placeholder={this.props.console ? this.props.console.image : ""}/>
                         </div>
                       </div>
                     </div>
@@ -231,7 +231,7 @@ class EditConsole extends React.Component {
                     <div className="field-body">
                       <div className="field">
                         <div className="control">
-                          <textarea onChange={this.handleChange} id="description" cols="40" rows="5" className="textarea" placeholder={this.props.console.description}/>
+                          <textarea onChange={this.handleChange} id="description" cols="40" rows="5" className="textarea" placeholder={this.props.console ? this.props.console.description : ""}/>
                         </div>
                       </div>
                     </div>
@@ -249,7 +249,7 @@ class EditConsole extends React.Component {
             </div>
           </div>
         </div>
-        <button onClick={()=>{this.props.toggleEditConsole(event); this.props.toggleConsoleModal(event)}} class="modal-close is-large" aria-label="close"></button>
+        <button onClick={()=>{this.props.toggleEditConsole(event); this.props.toggleShowConsole(event)}} class="modal-close is-large" aria-label="close"></button>
       </div>
     )
   }
