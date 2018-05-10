@@ -19,11 +19,16 @@ class ShowConsole extends React.Component {
             <p><span className="has-text-weight-semibold">Region: </span>{this.props.console.region}</p>
             <p><span className="has-text-weight-semibold">Released: </span>{this.props.console.release_date}</p>
             <p><span className="has-text-weight-semibold">Description: </span>{this.props.console.description}</p>
-            <EditConsole getConsole={this.props.getConsole} updateConsole={this.props.updateConsole} console={this.props.console} />
+            <EditConsole
+              toggleConsoleModal={this.props.toggleConsoleModal}
+              toggleEditConsole={this.props.toggleEditConsole}
+              getConsole={this.props.getConsole}
+              updateConsole={this.props.updateConsole}
+              console={this.props.console} />
           </section>
           <footer className="modal-card-foot">
-            <button onClick={()=>{this.props.toggleEditConsole(event)}} className="button is-success">Edit</button>
-            <button onClick={()=>{this.props.toggleConsoleModal(event)}} className="button is-danger">Cancel</button>
+            <button onClick={()=>{this.props.toggleEditConsole(event)}} className="button is-primary">Edit</button>
+            <button onClick={()=>{this.props.toggleConsoleModal(event)}} className="button is-text">Close</button>
           </footer>
         </div>
       </div>
@@ -151,7 +156,7 @@ class Consoles extends React.Component {
   toggleEditConsole(event) {
     event.preventDefault();
     let editConsole = document.querySelector('.edit-console')
-    editConsole.classList.toggle('is-invisible')
+    editConsole.classList.toggle('is-active')
   }
 
   render() {
@@ -162,7 +167,7 @@ class Consoles extends React.Component {
           <div className="table-container">
             <div>
               <h1 className="title is-4 is-pulled-left">Console Collection</h1>
-              <button onClick={()=>{this.toggleAddConsole(event)}} className="button is-pulled-right is-primary">Add Console</button>
+              <button onClick={()=>{this.toggleAddConsole(event)}} className="button is-pulled-right is-info is-outlined">Add Console</button>
             </div>
             <ConsoleUpload
               console={this.state.console}
