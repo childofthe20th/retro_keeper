@@ -45,7 +45,7 @@ class GameUpload extends React.Component {
         <div className="modal-background"></div>
         <div className="modal-content">
           <div className="tile is-12 is-parent is-vertical">
-            <article className="tile is-child notification is-warning">
+            <article className="tile is-child notification is-danger">
               <form onSubmit={this.handleSubmit}>
                 <p className="title has-text-centered">Game Entry</p>
                 <div className="field is-horizontal">
