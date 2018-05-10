@@ -22,12 +22,17 @@ class ShowGame extends React.Component {
             <p><span className="has-text-weight-semibold">Quantity: </span>{this.props.game.qty}</p>
             <p><span className="has-text-weight-semibold">Region: </span>{this.props.game.region}</p>
             <p><span className="has-text-weight-semibold">Released: </span>{this.props.game.release_date}</p>
-            <p><span className="has-text-weight-semibold">Worth: </span>{this.props.game.worth}</p>
             <p><span className="has-text-weight-semibold">Description: </span>{this.props.game.description}</p>
+            <EditGame
+              toggleGameModal={this.props.toggleGameModal}
+              toggleEditGame={this.props.toggleEditGame}
+              getGame={this.props.getGame}
+              updateGame={this.props.updateGame}
+              game={this.props.game} />
           </section>
           <footer className="modal-card-foot">
-            <button className="button is-success">Edit</button>
-            <button onClick={()=>{this.props.toggleGameModal(event)}} className="button is-danger">Cancel</button>
+            <button onClick={()=>{this.props.toggleEditGame(event)}} className="button is-primary">Edit</button>
+            <button onClick={()=>{this.props.toggleGameModal(event)}} className="button is-text">Close</button>
           </footer>
         </div>
       </div>
@@ -109,8 +114,7 @@ class Games extends React.Component {
       qty: game.qty,
       description: game.description,
       region: game.region,
-      release_date: game.release_date,
-      worth: game.worth
+      release_date: game.release_date
     }
     fetch('/games/' + game.id, {
       body: JSON.stringify(data),
@@ -119,10 +123,10 @@ class Games extends React.Component {
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
       }
-    }).then((updatedConsole)=>{
-      return updatedConsole.json()
-    }).then((jsonedConsole)=>{
-      this.getConsoles()
+    }).then((updatedGame)=>{
+      return updatedGame.json()
+    }).then((jsonedGame)=>{
+      this.getGames()
     }).catch((error)=> console.log(error))
   }
 
@@ -158,7 +162,7 @@ class Games extends React.Component {
   toggleEditGame(event) {
     event.preventDefault();
     let editGame = document.querySelector('.edit-game')
-    editGame.classList.toggle('is-invisible')
+    editGame.classList.toggle('is-active')
   }
 
   render() {
@@ -169,7 +173,7 @@ class Games extends React.Component {
           <div className="table-container">
             <div>
               <h1 className="title is-4 is-pulled-left">Game Collection</h1>
-              <button onClick={()=>{this.toggleAddGame(event)}} className="button is-pulled-right is-primary">Add Game</button>
+              <button onClick={()=>{this.toggleAddGame(event)}} className="button is-pulled-right is-info is-outlined">Add Game</button>
             </div>
             <GameUpload
               game={this.state.game}
@@ -189,7 +193,6 @@ class Games extends React.Component {
                   <th><abbr title="Quantity">Qty</abbr></th>
                   <th>Region</th>
                   <th>Released</th>
-                  <th>Worth</th>
                   <th></th>
                 </tr>
               </thead>
@@ -205,7 +208,6 @@ class Games extends React.Component {
                   <th><abbr title="Quantity">Qty</abbr></th>
                   <th>Region</th>
                   <th>Released</th>
-                  <th>Worth</th>
                   <th></th>
                 </tr>
               </tfoot>
@@ -223,7 +225,6 @@ class Games extends React.Component {
                       <td onClick={()=>{this.getGame(game); this.toggleGameModal(event)}}>{game.qty}</td>
                       <td onClick={()=>{this.getGame(game); this.toggleGameModal(event)}}>{game.region}</td>
                       <td onClick={()=>{this.getGame(game); this.toggleGameModal(event)}}>{game.release_date}</td>
-                      <td onClick={()=>{this.getGame(game); this.toggleGameModal(event)}}>{game.worth}</td>
                       <td><i onClick={()=>this.deleteGame(game, index)} className="material-icons">delete</i></td>
                       <ShowGame
                         toggleGameModal={this.toggleGameModal}
