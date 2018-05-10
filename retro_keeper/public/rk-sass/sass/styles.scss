@@ -2,15 +2,32 @@
 @import "partials/variables";
 @import "partials/normalize";
 
+table {
+  border-radius: 15px;
+  border-bottom: 1px solid lightgray;
+}
+
+nav {
+  padding: 15px;
+}
+
+// .hero {
+//   background: url('https://images2.alphacoders.com/681/681583.gif') no-repeat;
+//   background-size: contain, cover;
+// }
 
 .main-title {
   font-family: 'MotterTekturaWebRegular', sans-serif;
 }
 
-td:hover {
+.material-icons:hover {
   cursor: pointer;
 }
 
-.material-icons:hover {
-  cursor: pointer;
+.is-disabled:hover {
+  cursor: not-allowed;
+}
+
+.material-icons {
+  margin: 5px;
 }
