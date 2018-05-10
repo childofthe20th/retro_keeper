@@ -1,5 +1,5 @@
 class Game
-  attr_reader :id, :title, :developer, :publisher, :platform, :genre, :region, :condition, :image, :rarity, :qty, :worth, :description, :release_date
+  attr_reader :id, :title, :developer, :publisher, :platform, :genre, :region, :condition, :image, :rarity, :qty, :description, :release_date
 
   if(ENV["DATABASE_URL"])
     uri = URI.parse(ENV["DATABASE_URL"])
@@ -20,7 +20,6 @@ class Game
     @image = opts["image"]
     @rarity = opts["rarity"]
     @qty = opts["qty"].to_i
-    @worth = opts["worth"].to_i
     @description = opts["description"]
     @release_date = opts["release_date"]
   end
@@ -50,7 +49,6 @@ class Game
             image,
             rarity,
             qty,
-            worth,
             description,
             release_date
           )
@@ -65,7 +63,6 @@ class Game
           '#{opts["image"]}',
           '#{opts["rarity"]}',
           #{opts["qty"]},
-          #{opts["worth"]},
           '#{opts["description"]}',
           '#{opts["release_date"]}'
         )
@@ -81,7 +78,6 @@ class Game
           image,
           rarity,
           qty,
-          worth,
           description,
           release_date;
       SQL
@@ -110,7 +106,6 @@ class Game
           image='#{opts["image"]}',
           rarity='#{opts["rarity"]}',
           qty=#{opts["qty"]},
-          worth=#{opts["worth"]},
           description='#{opts["description"]}',
           release_date='#{opts["release_date"]}'
         WHERE
@@ -127,7 +122,6 @@ class Game
           image,
           rarity,
           qty,
-          worth,
           description,
           release_date;
       SQL

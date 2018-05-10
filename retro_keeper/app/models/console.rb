@@ -78,7 +78,7 @@ class Console
     return { deleted: true }
   end
 
-  def self.update(id, opts={})   
+  def self.update(id, opts={})
     results = DB.exec(
       <<-SQL
         UPDATE
