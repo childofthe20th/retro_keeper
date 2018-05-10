@@ -1,14 +1,30 @@
-/* line 6, ../sass/styles.scss */
+/* line 5, ../sass/styles.scss */
+table {
+  border-radius: 15px;
+  border-bottom: 1px solid lightgray;
+}
+
+/* line 10, ../sass/styles.scss */
+nav {
+  padding: 15px;
+}
+
+/* line 19, ../sass/styles.scss */
 .main-title {
   font-family: 'MotterTekturaWebRegular', sans-serif;
 }
 
-/* line 10, ../sass/styles.scss */
-td:hover {
+/* line 23, ../sass/styles.scss */
+.material-icons:hover {
   cursor: pointer;
 }
 
-/* line 14, ../sass/styles.scss */
-.material-icons:hover {
-  cursor: pointer;
+/* line 27, ../sass/styles.scss */
+.is-disabled:hover {
+  cursor: not-allowed;
+}
+
+/* line 31, ../sass/styles.scss */
+.material-icons {
+  margin: 5px;
 }
