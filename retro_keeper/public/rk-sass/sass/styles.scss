@@ -8,26 +8,73 @@ table {
 }
 
 nav {
-  padding: 15px;
+  padding: 10px;
 }
 
-// .hero {
-//   background: url('https://images2.alphacoders.com/681/681583.gif') no-repeat;
-//   background-size: contain, cover;
-// }
+.hero {
+  background: url('https://images2.alphacoders.com/681/681583.gif') no-repeat;
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  position: relative;
+}
 
 .main-title {
   font-family: 'MotterTekturaWebRegular', sans-serif;
+  font-size: 3.5rem;
+  text-shadow: 10px 10px 10px gray;
 }
 
-.material-icons:hover {
-  cursor: pointer;
+.page-title {
+  font-family: 'MotterTekturaWebRegular', sans-serif;
+  text-shadow: 3px 3px 3px gray;
 }
 
 .is-disabled:hover {
   cursor: not-allowed;
 }
 
+.create-button {
+  box-shadow: 3px 3px 3px gray;
+}
+
 .material-icons {
   margin: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.fab:hover {
+  color: #fcdd6f;
+}
+
+.fab-footer {
+  margin: 30px 15px;
+  color: white;
+  &:hover {
+    cursor: pointer;
+    color: #fcdd6f;
+  }
+}
+
+.ga-icon {
+  width: 20px;
+  vertical-align: middle;
+  margin: 3px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.me-container {
+  width: 220px;
+  border-radius: 90%;
+
+}
+
+.me {
+  width: 200px;
+  border-radius: 50%;
+
 }

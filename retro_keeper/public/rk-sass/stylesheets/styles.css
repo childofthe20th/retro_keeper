@@ -6,25 +6,85 @@ table {
 
 /* line 10, ../sass/styles.scss */
 nav {
-  padding: 15px;
+  padding: 10px;
 }
 
-/* line 19, ../sass/styles.scss */
+/* line 14, ../sass/styles.scss */
+.hero {
+  background: url("https://images2.alphacoders.com/681/681583.gif") no-repeat;
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* line 22, ../sass/styles.scss */
 .main-title {
   font-family: 'MotterTekturaWebRegular', sans-serif;
+  font-size: 3.5rem;
+  text-shadow: 10px 10px 10px gray;
 }
 
-/* line 23, ../sass/styles.scss */
-.material-icons:hover {
-  cursor: pointer;
+/* line 28, ../sass/styles.scss */
+.page-title {
+  font-family: 'MotterTekturaWebRegular', sans-serif;
+  text-shadow: 3px 3px 3px gray;
 }
 
-/* line 27, ../sass/styles.scss */
+/* line 33, ../sass/styles.scss */
 .is-disabled:hover {
   cursor: not-allowed;
 }
 
-/* line 31, ../sass/styles.scss */
+/* line 37, ../sass/styles.scss */
+.create-button {
+  box-shadow: 3px 3px 3px gray;
+}
+
+/* line 41, ../sass/styles.scss */
 .material-icons {
   margin: 5px;
+}
+/* line 43, ../sass/styles.scss */
+.material-icons:hover {
+  cursor: pointer;
+}
+
+/* line 48, ../sass/styles.scss */
+.fab:hover {
+  color: #fcdd6f;
+}
+
+/* line 52, ../sass/styles.scss */
+.fab-footer {
+  margin: 30px 15px;
+  color: white;
+}
+/* line 55, ../sass/styles.scss */
+.fab-footer:hover {
+  cursor: pointer;
+  color: #fcdd6f;
+}
+
+/* line 61, ../sass/styles.scss */
+.ga-icon {
+  width: 20px;
+  vertical-align: middle;
+  margin: 3px;
+}
+/* line 65, ../sass/styles.scss */
+.ga-icon:hover {
+  cursor: pointer;
+}
+
+/* line 70, ../sass/styles.scss */
+.me-container {
+  width: 220px;
+  border-radius: 90%;
+}
+
+/* line 76, ../sass/styles.scss */
+.me {
+  width: 200px;
+  border-radius: 50%;
 }
