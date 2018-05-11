@@ -8,6 +8,14 @@ class Home extends React.Component {
             <a href="#consoles" className="button is-white is-outlined is-large">Get Started</a>
           </div>
         </div>
+
+        <div className="hero-foot">
+          <div className="tabs is-right is-large">
+            <ul>
+              <li><a href="https://github.com/childofthe20th/retro_keeper/tree/dev/retro_keeper"><i className="fab fa-github-alt fa-2x"></i></a></li>
+            </ul>
+          </div>
+        </div>
       </section>
     )
   }

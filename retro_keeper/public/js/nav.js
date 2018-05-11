@@ -71,7 +71,7 @@ class Nav extends React.Component {
                 <p className="control">
                   <a href="" className="button is-primary">
                     <span className="icon">
-                      <i className="fab material-icons">account_box</i>
+                      <i className="material-icons">account_box</i>
                     </span>
                   </a>
                 </p>
