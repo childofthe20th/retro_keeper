@@ -5,20 +5,20 @@ class EditGame extends React.Component {
     super(props)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.state = {
-      title: "",
-      developer: "",
-      publisher: "",
-      platform: "",
-      genre: "",
-      region: "",
-      condition: "",
-      image: "",
-      rarity: "",
-      qty: 0,
-      description: "",
-      release_date: ""
-    }
+    // this.state = {
+    //   title: "",
+    //   developer: "",
+    //   publisher: "",
+    //   platform: "",
+    //   genre: "",
+    //   region: "",
+    //   condition: "",
+    //   image: "",
+    //   rarity: "",
+    //   qty: 0,
+    //   description: "",
+    //   release_date: ""
+    // }
   }
 
   componentDidMount() {
@@ -48,8 +48,9 @@ class EditGame extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state)
-    this.props.updateGame(this.state)
+    console.log(this.state);
+    console.log(this.props.game);
+    this.props.updateGame(this.props.game)
   }
 
   render() {
