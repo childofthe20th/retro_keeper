@@ -168,9 +168,9 @@ class Consoles extends React.Component {
       <section id="consoles" className="section">
         <div className="container">
           <div className="table-container">
-            <div>
-              <h1 className="title is-4 is-pulled-left">Console Collection</h1>
-              <button onClick={()=>{this.toggleAddConsole(event)}} className="button is-pulled-right is-info is-outlined is-rounded">Add Console</button>
+            <div className="box has-background-warning">
+              <h1 className="title is-size-3 is-bold has-text-info page-title is-pulled-left">Console Collection</h1>
+              <button onClick={()=>{this.toggleAddConsole(event)}} className="button create-button is-pulled-right is-primary is-rounded"><i className="fas fa-plus fa-1.5x"></i></button>
             </div>
             <ConsoleUpload
               console={this.state.console}
@@ -203,7 +203,7 @@ class Consoles extends React.Component {
                     <td>{platform.qty}</td>
                     <td>{platform.region}</td>
                     <td>{platform.release_date}</td>
-                    <td><i onClick={()=>this.deleteConsole(platform, index)} className="material-icons">delete</i></td>
+                    <td><i onClick={()=>this.deleteConsole(platform, index)} className="material-icons has-text-danger">delete</i></td>
                   </tr>
                 )
               })}

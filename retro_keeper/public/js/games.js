@@ -104,22 +104,24 @@ class Games extends React.Component {
   }
 
   updateGame(game) {
-    let data = {
-      title: game.title,
-      developer: game.developer,
-      publisher: game.publisher,
-      platform: game.platform,
-      genre: game.genre,
-      condition: game.condition,
-      image: game.image,
-      rarity: game.rarity,
-      qty: game.qty,
-      description: game.description,
-      region: game.region,
-      release_date: game.release_date
-    }
+    // game = this.state.game;
+    console.log(game);
+    // let data = {
+    //   title: game.title,
+    //   developer: game.developer,
+    //   publisher: game.publisher,
+    //   platform: game.platform,
+    //   genre: game.genre,
+    //   condition: game.condition,
+    //   image: game.image,
+    //   rarity: game.rarity,
+    //   qty: game.qty,
+    //   description: game.description,
+    //   region: game.region,
+    //   release_date: game.release_date
+    // }
     fetch('/games/' + game.id, {
-      body: JSON.stringify(data),
+      body: JSON.stringify(game),
       method: 'PUT',
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -174,9 +176,9 @@ class Games extends React.Component {
       <section id="games" className="section">
         <div className="container">
           <div className="table-container">
-            <div>
-              <h1 className="title is-4 is-pulled-left">Game Collection</h1>
-              <button onClick={()=>{this.toggleAddGame(event)}} className="button is-pulled-right is-info is-outlined is-rounded">Add Game</button>
+            <div className="box has-background-warning">
+              <h1 className="title is-size-3 is-bold has-text-info page-title is-pulled-left">Game Collection</h1>
+              <button onClick={()=>{this.toggleAddGame(event)}} className="button create-button is-pulled-right is-primary is-rounded"><i className="fas fa-plus fa-1.5x"></i></button>
             </div>
             <GameUpload
               game={this.state.game}
@@ -215,7 +217,7 @@ class Games extends React.Component {
                       <td>{game.qty}</td>
                       <td>{game.region}</td>
                       <td>{game.release_date}</td>
-                      <td><i onClick={()=>this.deleteGame(game, index)} className="material-icons">delete</i></td>
+                      <td><i onClick={()=>this.deleteGame(game, index)} className="material-icons has-text-danger">delete</i></td>
                     </tr>
                   )
                 })}
