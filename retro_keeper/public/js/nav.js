@@ -69,7 +69,7 @@ class Nav extends React.Component {
             <div className="navbar-item">
               <div className="field is-grouped">
                 <p className="control">
-                  <a href="" className="button is-primary">
+                  <a href="" className="button is-info">
                     <span className="icon">
                       <i className="material-icons">account_box</i>
                     </span>
