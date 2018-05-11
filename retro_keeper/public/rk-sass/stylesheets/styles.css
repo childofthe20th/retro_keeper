@@ -21,8 +21,8 @@ nav {
 /* line 22, ../sass/styles.scss */
 .main-title {
   font-family: 'MotterTekturaWebRegular', sans-serif;
-  font-size: 3.5rem;
-  text-shadow: 10px 10px 10px gray;
+  font-size: 3rem;
+  text-shadow: 5px 5px 10px dimgray;
 }
 
 /* line 28, ../sass/styles.scss */
@@ -51,39 +51,49 @@ nav {
 }
 
 /* line 48, ../sass/styles.scss */
+.show-icon:hover {
+  color: #248AEC;
+}
+
+/* line 52, ../sass/styles.scss */
+.delete-icon:hover {
+  color: indianred;
+}
+
+/* line 56, ../sass/styles.scss */
 .fab:hover {
   color: #fcdd6f;
 }
 
-/* line 52, ../sass/styles.scss */
+/* line 60, ../sass/styles.scss */
 .fab-footer {
   margin: 30px 15px;
   color: white;
 }
-/* line 55, ../sass/styles.scss */
+/* line 63, ../sass/styles.scss */
 .fab-footer:hover {
   cursor: pointer;
   color: #fcdd6f;
 }
 
-/* line 61, ../sass/styles.scss */
+/* line 69, ../sass/styles.scss */
 .ga-icon {
   width: 20px;
   vertical-align: middle;
   margin: 3px;
 }
-/* line 65, ../sass/styles.scss */
+/* line 73, ../sass/styles.scss */
 .ga-icon:hover {
   cursor: pointer;
 }
 
-/* line 70, ../sass/styles.scss */
+/* line 78, ../sass/styles.scss */
 .me-container {
   width: 220px;
   border-radius: 90%;
 }
 
-/* line 76, ../sass/styles.scss */
+/* line 84, ../sass/styles.scss */
 .me {
   width: 200px;
   border-radius: 50%;

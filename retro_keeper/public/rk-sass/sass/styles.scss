@@ -21,8 +21,8 @@ nav {
 
 .main-title {
   font-family: 'MotterTekturaWebRegular', sans-serif;
-  font-size: 3.5rem;
-  text-shadow: 10px 10px 10px gray;
+  font-size: 3rem;
+  text-shadow: 5px 5px 10px dimgray;
 }
 
 .page-title {
@@ -45,8 +45,16 @@ nav {
   }
 }
 
+.show-icon:hover {
+  color: $blue;
+}
+
+.delete-icon:hover {
+  color: indianred;
+}
+
 .fab:hover {
-  color: #fcdd6f;
+  color: $yellow;
 }
 
 .fab-footer {
@@ -54,7 +62,7 @@ nav {
   color: white;
   &:hover {
     cursor: pointer;
-    color: #fcdd6f;
+    color: $yellow;
   }
 }
 
