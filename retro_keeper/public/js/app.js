@@ -7,6 +7,7 @@ class App extends React.Component {
         <Home />
         <Consoles />
         <Games />
+        <Hero2 />
         <About />
       </div>
     )
