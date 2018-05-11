@@ -2,7 +2,7 @@
 
 class ShowGame extends React.Component {
   render() {
-    console.log(this.props.game);
+    // console.log(this.props.game);
     return(
       <div className="modal game-modal">
         <div className="modal-background"></div>
@@ -104,22 +104,7 @@ class Games extends React.Component {
   }
 
   updateGame(game) {
-    // game = this.state.game;
     console.log(game);
-    // let data = {
-    //   title: game.title,
-    //   developer: game.developer,
-    //   publisher: game.publisher,
-    //   platform: game.platform,
-    //   genre: game.genre,
-    //   condition: game.condition,
-    //   image: game.image,
-    //   rarity: game.rarity,
-    //   qty: game.qty,
-    //   description: game.description,
-    //   region: game.region,
-    //   release_date: game.release_date
-    // }
     fetch('/games/' + game.id, {
       body: JSON.stringify(game),
       method: 'PUT',
@@ -206,7 +191,7 @@ class Games extends React.Component {
                 {this.state.games.map((game, index)=>{
                   return(
                     <tr>
-                      <td><i onClick={()=>{this.getGame(game); this.toggleShowGame(event)}} className="material-icons">open_in_new</i></td>
+                      <td><i onClick={()=>{this.getGame(game); this.toggleShowGame(event)}} className="material-icons show-icon">open_in_new</i></td>
                       <td>{game.title}</td>
                       <td>{game.developer}</td>
                       <td>{game.publisher}</td>
@@ -217,7 +202,7 @@ class Games extends React.Component {
                       <td>{game.qty}</td>
                       <td>{game.region}</td>
                       <td>{game.release_date}</td>
-                      <td><i onClick={()=>this.deleteGame(game, index)} className="material-icons has-text-danger">delete</i></td>
+                      <td><i onClick={()=>this.deleteGame(game, index)} className="material-icons delete-icon">delete</i></td>
                     </tr>
                   )
                 })}

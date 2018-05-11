@@ -5,32 +5,7 @@ class EditConsole extends React.Component {
     super(props)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.state = {
-      name: "",
-      company: "",
-      condition: "",
-      image: "",
-      modded: "",
-      qty: 0,
-      description: "",
-      region: "",
-      release_date: ""
-    }
-  }
-
-  componentDidMount() {
-    this.setState({
-      id: this.props.console.id,
-      name: this.props.console.name,
-      company: this.props.console.company,
-      condition: this.props.console.condition,
-      image: this.props.console.image,
-      modded: this.props.console.modded,
-      qty: this.props.console.qty,
-      description: this.props.console.description,
-      region: this.props.console.region,
-      release_date: this.props.console.release_date
-    })
+    this.state = {}
   }
 
   handleChange(event) {
@@ -42,8 +17,21 @@ class EditConsole extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state)
-    this.props.updateConsole(this.state)
+    console.log(this.state);
+    console.log(this.props.console);
+    let data = {
+      id: this.state.id || this.props.console.id,
+      name: this.state.name || this.props.console.name,
+      company: this.state.company || this.props.console.company,
+      condition: this.state.condition || this.props.console.condition,
+      image: this.state.image || this.props.console.image,
+      modded: this.state.modded || this.props.console.modded,
+      qty: this.state.qty || this.props.console.qty,
+      description: this.state.description || this.props.console.description,
+      region: this.state.region || this.props.console.region,
+      release_date: this.state.release_date || this.props.console.release_date
+    }
+    this.props.updateConsole(data)
   }
 
   render() {

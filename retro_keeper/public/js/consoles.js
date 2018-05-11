@@ -1,7 +1,7 @@
 
 class ShowConsole extends React.Component {
   render() {
-    console.log(this.props.console);
+    // console.log(this.props.console);
     return(
       <div className="modal console-modal">
         <div className="modal-background"></div>
@@ -101,19 +101,9 @@ class Consoles extends React.Component {
 
 
   updateConsole(platform) {
-    let data = {
-      name: platform.name,
-      company: platform.company,
-      condition: platform.condition,
-      image: platform.image,
-      modded: platform.modded,
-      qty: platform.qty,
-      description: platform.description,
-      region: platform.region,
-      release_date: platform.release_date
-    }
+    console.log(platform);
     fetch('/consoles/' + platform.id, {
-      body: JSON.stringify(data),
+      body: JSON.stringify(platform),
       method: 'PUT',
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -195,7 +185,7 @@ class Consoles extends React.Component {
               {this.state.consoles.map((platform, index)=>{
                 return(
                   <tr>
-                    <td><i onClick={()=>{this.getConsole(platform); this.toggleShowConsole(event)}} className="material-icons">open_in_new</i></td>
+                    <td><i onClick={()=>{this.getConsole(platform); this.toggleShowConsole(event)}} className="material-icons show-icon">open_in_new</i></td>
                     <td>{platform.name}</td>
                     <td>{platform.company}</td>
                     <td>{platform.condition}</td>
@@ -203,7 +193,7 @@ class Consoles extends React.Component {
                     <td>{platform.qty}</td>
                     <td>{platform.region}</td>
                     <td>{platform.release_date}</td>
-                    <td><i onClick={()=>this.deleteConsole(platform, index)} className="material-icons has-text-danger">delete</i></td>
+                    <td><i onClick={()=>this.deleteConsole(platform, index)} className="material-icons delete-icon">delete</i></td>
                   </tr>
                 )
               })}

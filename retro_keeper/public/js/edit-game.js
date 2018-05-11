@@ -5,38 +5,7 @@ class EditGame extends React.Component {
     super(props)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    // this.state = {
-    //   title: "",
-    //   developer: "",
-    //   publisher: "",
-    //   platform: "",
-    //   genre: "",
-    //   region: "",
-    //   condition: "",
-    //   image: "",
-    //   rarity: "",
-    //   qty: 0,
-    //   description: "",
-    //   release_date: ""
-    // }
-  }
-
-  componentDidMount() {
-    this.setState({
-      id: this.props.game.id,
-      title: this.props.game.title,
-      developer: this.props.game.developer,
-      publisher: this.props.game.publisher,
-      platform: this.props.game.platform,
-      genre: this.props.game.genre,
-      region: this.props.game.region,
-      condition: this.props.game.condition,
-      image: this.props.game.image,
-      rarity: this.props.game.rarity,
-      qty: this.props.game.qty,
-      description: this.props.game.description,
-      release_date: this.props.game.release_date
-    })
+    this.state = {}
   }
 
   handleChange(event) {
@@ -48,9 +17,24 @@ class EditGame extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
-    console.log(this.props.game);
-    this.props.updateGame(this.props.game)
+    // console.log(this.state);
+    // console.log(this.props.game);
+    let data = {
+      id: this.state.id || this.props.game.id,
+      title: this.state.title || this.props.game.title,
+      developer: this.state.developer || this.props.game.developer,
+      publisher: this.state.publisher || this.props.game.publisher,
+      platform: this.state.platform || this.props.game.platform,
+      genre: this.state.genre || this.props.game.genre,
+      condition: this.state.condition || this.props.game.condition,
+      image: this.state.image || this.props.game.image,
+      rarity: this.state.rarity || this.props.game.rarity,
+      qty: this.state.qty || this.props.game.qty,
+      description: this.state.description || this.props.game.description,
+      region: this.state.region || this.props.game.region,
+      release_date: this.state.release_date || this.props.game.release_date
+    }
+    this.props.updateGame(data)
   }
 
   render() {
