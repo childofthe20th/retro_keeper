@@ -1,4 +1,3 @@
-
 Rails.application.routes.draw do
 
   get '/consoles', to: 'consoles#index'

@@ -1,0 +1,88 @@
+@import "compass";
+@import "partials/variables";
+@import "partials/normalize";
+
+table {
+  border-radius: 15px;
+  border-bottom: 1px solid lightgray;
+}
+
+nav {
+  padding: 10px;
+}
+
+.hero {
+  background: url('https://images2.alphacoders.com/681/681583.gif') no-repeat;
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.main-title {
+  font-family: 'MotterTekturaWebRegular', sans-serif;
+  font-size: 3rem;
+  text-shadow: 5px 5px 10px dimgray;
+}
+
+.page-title {
+  font-family: 'MotterTekturaWebRegular', sans-serif;
+  text-shadow: 3px 3px 3px gray;
+}
+
+.is-disabled:hover {
+  cursor: not-allowed;
+}
+
+.create-button {
+  box-shadow: 3px 3px 3px gray;
+}
+
+.material-icons {
+  margin: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.show-icon:hover {
+  color: $blue;
+}
+
+.delete-icon:hover {
+  color: indianred;
+}
+
+.fab:hover {
+  color: $yellow;
+}
+
+.fab-footer {
+  margin: 30px 15px;
+  color: white;
+  &:hover {
+    cursor: pointer;
+    color: $yellow;
+  }
+}
+
+.ga-icon {
+  width: 20px;
+  vertical-align: middle;
+  margin: 3px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.me-container {
+  width: 220px;
+  border-radius: 90%;
+
+}
+
+.me {
+  width: 200px;
+  border-radius: 50%;
+
+}
